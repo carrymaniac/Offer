@@ -6,6 +6,11 @@ package Chap2;
  */
 public class FindIn2DArray {
     /**
+     * 普通思路:
+     * 对每个二维数组的每一行进行二分法查找
+     *
+     */
+    /**
      * 书本做法:
      * 从右上角的顶角开始比较
      */
