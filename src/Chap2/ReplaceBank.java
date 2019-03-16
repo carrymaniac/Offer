@@ -7,7 +7,7 @@ package Chap2;
 public class ReplaceBank {
     /**
      * 调用StringBuffer中方法的解法
-     * @param str 
+     * @param str
      * @return
      */
     public String replace(StringBuffer str) {
