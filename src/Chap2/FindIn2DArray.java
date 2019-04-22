@@ -35,4 +35,23 @@ public class FindIn2DArray {
         }
         return false;
     }
+
+    public boolean Find_01(int target,int[][] array) {
+        if (array == null || array.length == 0 || array[1].length == 0) {
+            return false;
+        }
+        int row = array.length, cols = array[0].length;
+        int r = 0, c = cols - 1;
+        //从右上角开始进行判断
+        while (r < row && c >= 0) {
+            if (array[r][c] > target) {
+                r++;
+            } else if (array[r][c] < target) {
+                c--;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
 }

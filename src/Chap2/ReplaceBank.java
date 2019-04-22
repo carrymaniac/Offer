@@ -54,4 +54,28 @@ public class ReplaceBank {
         return stringBuffer.toString();
     }
 
+    public String replaceSpace_01(StringBuffer stringBuffer){
+        int P1 = stringBuffer.length()-1;//原字符串的长度
+        //每检测到一个空格,在字符串末尾加上多一个空格
+        for(int i=0;i<=P1;i++){
+            if(stringBuffer.charAt(i)==' '){
+                stringBuffer.append("  ");
+            }
+        }
+        int P2 =stringBuffer.length()-1;
+        while (P1>0&&P2>P1){
+            char c = stringBuffer.charAt(P1--);
+            if(c==' '){
+                //注意是倒序列的
+                stringBuffer.setCharAt(P2--,'0');
+                stringBuffer.setCharAt(P2--,'2');
+                stringBuffer.setCharAt(P2--,'%');
+            }else {
+                stringBuffer.setCharAt(P2--,c);
+            }
+        }
+        return stringBuffer.toString();
+
+    }
+
 }
