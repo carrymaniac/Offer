@@ -9,3 +9,6 @@ out
 gen
 .idea/workspace.xml
 out/
+将删除 src/main/
+将删除 src/test/
+将删除 target/
