@@ -13,33 +13,36 @@ public class bstTopoSize {
      */
 
 
-    public boolean bstTopoSize(TreeNode h, TreeNode n, int value) {
-        if (h == null) {
-            return false;
+    public int bstTopoSize(TreeNode head) {
+        if (head == null) {
+            return 0;
         }
-        if (h == n) {
-            return true;
-        }
-        return isBSTNode(h.val>value?h.left:h.right,n,value);
+        int max = maxTop(head, head);
+        max = Math.max(max, bstTopoSize(head.left));
+        max = Math.max(max, bstTopoSize(head.right));
+        return max;
+
     }
 
     /**
      * 计算最大的拓扑结构
+     *
      * @param h
      * @param n
      * @return
      */
     public int maxTop(TreeNode h, TreeNode n) {
-        if(h!=null&&n!=null&isBSTNode(h,n,n.val)){
-            return maxTop(h,n.left)+maxTop(h,n.right)+1;
+        if (h != null && n != null & isBSTNode(h, n, n.val)) {
+            return maxTop(h, n.left) + maxTop(h, n.right) + 1;
         }
         return 0;
     }
 
     /**
      * 找到子节点
-     * @param h 当前遍历到的节点
-     * @param n 想要查找的节点(即预计的节点
+     *
+     * @param h     当前遍历到的节点
+     * @param n     想要查找的节点(即预计的节点
      * @param value 想要查找的节点的值
      * @return
      */
